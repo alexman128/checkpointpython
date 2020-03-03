@@ -1,7 +1,6 @@
 import json
 import csv
 
-
 class CSVFile():
     '''
     This class handle a csv file using following parameters:
@@ -14,6 +13,6 @@ class CSVFile():
 
     def write_content(self):
         with open(self.file_dir,self.mode) as my_file:
-            writer = csv.DictWriter(my_file, self.content.keys())
-            writer.writeheader()
+            writer = csv.writer(my_file, quoting=csv.QUOTE_ALL)
+            #writer.writeheader()
             writer.writerow(self.content)    
